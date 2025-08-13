@@ -1,1 +1,1 @@
-Pinchi proyecto de fisica culero
+Proyecto de fisica y desarrollo web

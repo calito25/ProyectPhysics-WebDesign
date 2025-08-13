@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Lista DOM</title>
+</head>
+<body>
+    <input type="text" id="item" placeholder="Escribe un elemento">
+    <button id="agregar">Agregar</button>
+    <ul id="lista"></ul>
+
+    <script>
+        let boton = document.getElementById("agregar");
+        let lista = document.getElementById("lista");
+        let input = document.getElementById("item");
+
+        boton.addEventListener("click", function() {
+            let nuevoItem = document.createElement("li");
+            nuevoItem.textContent = input.value;
+            lista.appendChild(nuevoItem);
+            input.value = "";
+        });
+    </script>
+</body>
+</html>

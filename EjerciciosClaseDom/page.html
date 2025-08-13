@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manipulacion DOM</title>
+    <h1 id="titulo">Texto Original</h1>
+
+</head>
+
+<body>
+    <button onclick="cambiarTexto()>Cambiartexto"></button>
+    <button onclick="revertirTexto()">Revertir texto</button>
+
+
+
+    <script>
+        function cambiarTexto() {
+            let elemento = document.getElementById("titulo");
+
+            elemento.textContent = "Texto Cambiado";
+        }
+        function revertirTexto() {
+            let elemento = document.getElementById("titulo");
+            elemento.textContent = "Texto Original";
+        }
+
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Evento teclado</title>
+</head>
+<body>
+    <input type="text" id="apellido" placeholder="Escribe tu apellido">
+    <p id="mensaje"></p>
+
+    <script>
+        let input = document.getElementById("apellido");
+        let mensaje = document.getElementById("mensaje");
+
+        input.addEventListener("keyup", function() {
+            mensaje.textContent = "Hola, " + input.value;
+        });
+    </script>
+</body>
+</html>

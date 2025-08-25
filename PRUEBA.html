@@ -1,0 +1,55 @@
+<!DOCTYPE html> <!-- Declaración del tipo de documento HTML5 -->
+<html lang="es"> <!-- Define el idioma de la página como español -->
+<head>
+  <meta charset="UTF-8"> <!-- Configura la codificación de caracteres (UTF-8 soporta tildes y ñ) -->
+  <title>Ejemplo API con Fetch</title> <!-- Título de la pestaña del navegador -->
+  <style>
+    body {
+      background-color: #000;
+      color: #fff;
+    }
+  </style>
+</head>
+<body>
+  <h1>Usuarios</h1> <!-- Encabezado principal -->
+  <ul id="listaUsuarios"></ul> <!-- Lista vacía donde se mostrarán los usuarios -->
+
+  <script>
+    // Definimos una función asíncrona para poder usar "await"
+    async function obtenerUsuarios() {
+      try {
+        // Hacemos la petición a la API pública con fetch
+        const respuesta = await fetch("https://jsonplaceholder.typicode.com/users");
+        
+        // Verificamos si la respuesta es correcta (status 200-299)
+        if (!respuesta.ok) {
+          // Si no es correcta, lanzamos un error con el código de estado
+          throw new Error("Error en la respuesta: " + respuesta.status);
+        }
+
+        // Convertimos la respuesta a JSON (formato de objetos en JavaScript)
+        const usuarios = await respuesta.json();
+
+        // Obtenemos el elemento <ul> del DOM donde vamos a insertar los usuarios
+        const lista = document.getElementById("listaUsuarios");
+
+        // Recorremos el arreglo de usuarios recibido desde la API
+        usuarios.forEach(usuario => {
+          // Creamos un nuevo elemento <li> para cada usuario
+          const li = document.createElement("li");
+          // Asignamos texto al <li> con nombre y correo
+          li.textContent = `${usuario.name} (${usuario.email})`;
+          // Agregamos el <li> como hijo de la lista <ul>
+          lista.appendChild(li);
+        });
+      } catch (error) {
+        // Si ocurre un error en la petición o procesamiento, lo mostramos en consola
+        console.error("Error al obtener usuarios:", error);
+      }
+    }
+
+    // Llamamos a la función para ejecutar el proceso de obtener y mostrar usuarios
+    obtenerUsuarios();
+  </script>
+</body>
+</html>

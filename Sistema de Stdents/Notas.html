@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sistema de notas</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1>Sistema de Notas barato de Temu</h1>
+    </header>
+    <h2>Lista de Estudiantes</h2>
+    <div style="margin-bottom: 20px;">
+        <input type="text" id="nombre" placeholder="Nombre" />
+        <input type="number" id="edad" placeholder="Edad" min="1" />
+        <input type="text" id="notas" placeholder="Notas (ej: 8,9,10)" />
+        <button onclick="agregarEstudiante()">Añadir</button>
+    </div>
+    <button onclick="mostrarEstudiantes()">Mostrar estudiantes</button>
+    <button onclick="ocultarEstudiantes()">Ocultar estudiantes</button>
+    <button onclick="mostrarEstudianteMayorPromedio()">Estudiante con mayor promedio</button>
+
+    <div id="lista-estudiantes"></div>
+    <style>
+    .estudiante-card {
+        background: linear-gradient(135deg, #4fd1c5 60%, #38a169 100%);
+        color: #fff;
+        border-radius: 12px;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+        padding: 18px 20px 10px 20px;
+        margin-bottom: 18px;
+        max-width: 350px;
+        font-size: 18px;
+        position: relative;
+    }
+    .eliminar-btn {
+        background: #e53e3e;
+        color: #fff;
+        border: none;
+        border-radius: 6px;
+        padding: 6px 14px;
+        font-size: 15px;
+        cursor: pointer;
+        margin-top: 10px;
+        transition: background 0.2s;
+    }
+    .eliminar-btn:hover {
+        background: #c53030;
+    }
+    </style>
+    <script src="Script.js"></script>
+</body>
+</html>

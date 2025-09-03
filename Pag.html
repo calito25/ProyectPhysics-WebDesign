@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Taller 1</title>
+    <style>
+        body{
+            background-color: black;
+        }
+        h1{
+            color: aqua;
+        }
+        p{
+            color: aqua;
+        }
+        label, input, button, li, h2 {
+            color: aqua;
+        }
+        input, button {
+            margin: 5px 0;
+            border-radius: 6px;
+            padding: 8px 12px;
+            border: none;
+            font-size: 1rem;
+        }
+        button {
+            color: white;
+            background-color: black;
+            cursor: pointer;
+            transition: background 0.2s, color 0.2s;
+        }
+        button:hover {
+            background-color: #2222aa;
+            color: #fff;
+        }
+        form {
+            margin-bottom: 20px;
+        }
+        #saludo {
+            font-size: 1.2rem;
+            margin-bottom: 20px;
+        }
+        ul#hobbiesList {
+            list-style: disc inside;
+            margin-bottom: 20px;
+        }
+        button {
+            color: white;
+            background-color: black;
+        }
+    </style>
+</head>
+<body>
+    <h1>Primer taller</h1>
+    <form id="userForm">
+        <label for="nombre">Nombre:</label>
+        <input type="text" id="nombre" name="nombre" required>
+        <br>
+        <label for="edad">Edad:</label>
+        <input type="number" id="edad" name="edad" required>
+        <br>
+        <button type="submit">Enviar</button>
+    </form>
+    <p id="saludo"></p>
+    <h2>Mis hobbies</h2>
+    <ul id="hobbiesList"></ul>
+    <button onclick="cambiarFondo()">Cambiar color de fondo</button>
+    <script>
+        // Hobbies favoritos
+        var hobbies = ["Leer", "Jugar fútbol", "Ver películas", "Viajar", "Cocinar"];
+        var lista = document.getElementById('hobbiesList');
+        for (var i = 0; i < hobbies.length; i++) {
+            var item = document.createElement('li');
+            item.textContent = hobbies[i];
+            lista.appendChild(item);
+        }
+
+        // Saludo personalizado
+        var formulario = document.getElementById('userForm');
+        formulario.addEventListener('submit', function(e) {
+            e.preventDefault();
+            var nombre = document.getElementById('nombre').value;
+            var edad = document.getElementById('edad').value;
+            var mensaje = "Hola " + nombre;
+            document.getElementById('saludo').textContent = mensaje;
+        });
+
+        // Cambiar color de fondo
+        function cambiarFondo() {
+            var colores = ["black", "#2222aa", "#228822", "#aa2222", "#222222", "#444444"];
+            var colorActual = document.body.style.backgroundColor;
+            var nuevoColor = colores[Math.floor(Math.random() * colores.length)];
+            while (nuevoColor === colorActual) {
+                nuevoColor = colores[Math.floor(Math.random() * colores.length)];
+            }
+            document.body.style.backgroundColor = nuevoColor;
+        }
+    </script>
+</body>
+</html>

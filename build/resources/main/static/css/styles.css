@@ -1,0 +1,65 @@
+/* Styles for Tienda de Videojuegos - starter */
+:root{
+  --accent:#00aaff;
+  --bg:#f6f8fa;
+  --card:#ffffff;
+  --muted:#666;
+}
+*{box-sizing:border-box}
+body{font-family:Inter,Segoe UI,Arial, sans-serif;margin:0;background:var(--bg);color:#111;position:relative;min-height:100vh;overflow-x:hidden}
+
+/* Neon background: blue glow on the left, red glow on the right */
+body::before,
+body::after{
+  content:"";
+  position:fixed;
+  left:0;right:0;
+  pointer-events:none;
+  z-index:0;
+  /* limit to bottom portion */
+  height:40vh;
+  bottom:0;
+}
+
+body::before{
+  /* left blue neon (bottom area) */
+  background: radial-gradient(500px 260px at 12% 80%, rgba(0,170,255,0.40), rgba(0,170,255,0.14) 30%, transparent 65%);
+  filter: blur(48px) saturate(150%);
+  mix-blend-mode: screen;
+}
+
+body::after{
+  /* right red neon (bottom area) */
+  background: radial-gradient(500px 260px at 88% 80%, rgba(255,30,90,0.38), rgba(255,30,90,0.12) 30%, transparent 65%);
+  filter: blur(48px) saturate(150%);
+  mix-blend-mode: screen;
+}
+
+/* Ensure main content is above the neon background */
+.site-header, .container, .site-footer, .hero, .featured { position: relative; z-index: 1 }
+
+.site-header{background:#0b1220;color:#fff;padding:12px 20px;display:flex;align-items:center;justify-content:space-between}
+.site-header h1{margin:0;font-size:1.25rem}
+.site-header nav a{color:#d7eafc;margin-left:12px;text-decoration:none}
+.container{max-width:1000px;margin:28px auto;padding:0 16px}
+.hero{background:linear-gradient(90deg,rgba(0,170,255,0.08),transparent);padding:28px;border-radius:8px}
+.hero h2{margin-top:0}
+.btn{display:inline-block;background:var(--accent);color:#fff;padding:8px 14px;border-radius:6px;text-decoration:none}
+.featured{margin-top:20px}
+.cards{display:flex;gap:14px}
+.card{background:var(--card);padding:12px;border-radius:8px;flex:1;box-shadow:0 1px 3px rgba(0,0,0,0.06);text-align:center}
+.card img{width:100%;height:140px;object-fit:cover;border-radius:6px}
+.price{color:var(--accent);font-weight:700}
+.card h4{margin:8px 0 6px;font-size:1rem;line-height:1.1;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.site-footer{padding:18px 20px;text-align:center;color:var(--muted);font-size:0.9rem}
+
+/* Responsive */
+@media (max-width:640px){
+  .cards{flex-direction:column}
+  .site-header nav a{margin-left:8px}
+}
+
+/* Utilities */
+.text-center{text-align:center}
+
+/* End of starter styles */

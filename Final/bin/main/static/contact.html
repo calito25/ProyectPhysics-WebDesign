@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="es">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Contacto | ARCADIA</title>
+    <link href="/css/style.css" rel="stylesheet">
+    <link rel="icon" type="image/png" href="/img/hellcapsule.png">
+</head>
+<body>
+    <header class="site-header">
+        <div class="nav-wrap">
+            <a class="nav-logo" href="/">ARCADIA</a>
+            <nav class="nav-main">
+                <a href="/index.html">Inicio</a>
+                <a href="/catalog.html">Catálogo</a>
+                <a href="/contact.html">Contacto</a>
+                <a href="#" id="cart-icon" class="cart-link">🛒 <span id="cart-count">0</span></a>
+            </nav>
+        </div>
+    </header>
+    <main class="container">
+        <h2 class="text-center">Contáctanos</h2>
+            <form id="contactForm" class="contact-form">
+                <label for="name">Nombre:</label>
+                <input type="text" id="name" name="name" required placeholder="Tu nombre">
+                <label for="email">Correo electrónico:</label>
+                <input type="email" id="email" name="email" required placeholder="ejemplo@email.com">
+                <label for="message">Mensaje:</label>
+                <textarea id="message" name="message" required placeholder="¿En qué podemos ayudarte?"></textarea>
+                <button type="submit" class="btn">Solicitar información</button>
+            </form>
+            <div id="contact-success" style="display:none;margin-top:1.5rem;color:#00aaff;font-weight:bold;text-align:center; font-size:1.2rem;">
+                ¡Gracias por contactarnos! Pronto recibirás una respuesta.
+            </div>
+    </main>
+    <div id="cart-panel" class="cart-panel">
+        <div class="cart-panel-content">
+            <h3>Carrito de compras</h3>
+            <ul id="cart-items"></ul>
+            <p id="cart-total"></p>
+            <button id="pay-cart" class="btn" style="background:#00ff99; color:#222; margin-bottom:8px;">Pagar</button>
+            <button id="close-cart" class="btn">Cerrar</button>
+        </div>
+    </div>
+    <footer class="site-footer">
+        <p>&copy; 2025 ARCADIA - Tienda de Videojuegos</p>
+    </footer>
+    <script src="/js/app.js" defer></script>
+    <script>
+    document.getElementById('contact-form').addEventListener('submit', function(e) {
+        e.preventDefault();
+        document.getElementById('contact-form').style.display = 'none';
+        document.getElementById('contact-success').style.display = 'block';
+    });
+    </script>
+</body>
+</html>

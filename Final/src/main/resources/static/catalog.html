@@ -1,0 +1,115 @@
+<!doctype html>
+<html lang="es">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Catálogo | ARCADIA</title>
+    <link href="/css/style.css" rel="stylesheet">
+    <link rel="icon" type="image/png" href="/img/hellcapsule.png">
+</head>
+<body>
+    <header class="site-header">
+        <div class="nav-wrap">
+            <a class="nav-logo" href="/">ARCADIA</a>
+            <nav class="nav-main">
+                <a href="/index.html">Inicio</a>
+                <a href="/catalog.html">Catálogo</a>
+                <a href="/contact.html">Contacto</a>
+                <a href="#" id="cart-icon" class="cart-link">🛒 <span id="cart-count">0</span></a>
+            </nav>
+        </div>
+    </header>
+    <main class="container">
+        <h2 class="text-center">Catálogo de Videojuegos</h2>
+        <div class="search-bar" style="text-align:center; margin-bottom: 1.5rem;">
+            <input type="text" id="searchInput" placeholder="Buscar por nombre..." style="padding:0.6rem 1rem; border-radius:6px; border:none; width:220px; font-size:1rem;">
+        </div>
+        <div class="cards" id="catalogCards">
+            <article class="card offer-card" data-title="SpaceMarine2" data-price="35.00" data-img="/img/SpaceMarine2.jpg">
+                <div class="ribbon">20% OFF</div>
+                <img src="/img/SpaceMarine2.jpg" alt="Portada Warhammer 40K: SpaceMarine2">
+                <h4>Warhammer 40K: SpaceMarine2</h4>
+                <p class="platform" style="font-size:0.85rem;color:#b3c7f7;margin:0 0 2px 0;">PC, Xbox, PS5</p>
+                <p class="price">$35.00</p>
+                <button class="add-to-cart">Agregar al carrito</button>
+            </article>
+            <article class="card offer-card" data-title="Cyberpunk 2077" data-price="35.00" data-img="/img/Cyberpunk2077.jpg">
+                <div class="ribbon">20% OFF</div>
+                <img src="/img/Cyberpunk2077.jpg" alt="Portada Cyberpunk 2077">
+                <h4>Cyberpunk 2077</h4>
+                <p class="platform" style="font-size:0.85rem;color:#b3c7f7;margin:0 0 2px 0;">PC, PS5, Xbox</p>
+                <p class="price">$35.00</p>
+                <button class="add-to-cart">Agregar al carrito</button>
+            </article>
+            <article class="card" data-title="Ghost of Tsushima Director's Cut" data-price="19.99" data-img="/img/GoTDC.webp">
+                <img src="/img/GoTDC.webp" alt="Ghost of Tsushima Director's Cut">
+                <h4>Ghost of Tsushima Director's Cut</h4>
+                <p class="platform" style="font-size:0.85rem;color:#b3c7f7;margin:0 0 2px 0;">PS5, PS4, PC</p>
+                <p class="price">$19.99</p>
+                <button class="add-to-cart">Agregar al carrito</button>
+            </article>
+            <article class="card" data-title="Ghost Of Yotei" data-price="29.99" data-img="/img/GoY.webp">
+                <img src="/img/GoY.webp" alt="Ghost Of Yotei">
+                <h4>Ghost Of Yotei</h4>
+                <p class="platform" style="font-size:0.85rem;color:#b3c7f7;margin:0 0 2px 0;">PS5</p>
+                <p class="price">$29.99</p>
+                <button class="add-to-cart">Agregar al carrito</button>
+            </article>
+            <article class="card" data-title="Battlefield 6" data-price="29.99" data-img="/img/BF6.webp">
+                <img src="/img/BF6.webp" alt="Battlefield 6">
+                <h4>Battlefield 6</h4>
+                <p class="platform" style="font-size:0.85rem;color:#b3c7f7;margin:0 0 2px 0;">Xbox Series X, PS5, PC</p>
+                <p class="price">$29.99</p>
+                <button class="add-to-cart">Agregar al carrito</button>
+            </article>
+            <article class="card" data-title="Halo Infinite" data-price="34.99" data-img="/img/HaloInfinite.jpg">
+                <img src="/img/HaloInfinite.jpg" alt="Halo Infinite">
+                <h4>Halo Infinite</h4>
+                <p class="platform" style="font-size:0.85rem;color:#b3c7f7;margin:0 0 2px 0;">PC, Xbox</p>
+                <p class="price">$34.99</p>
+                <button class="add-to-cart">Agregar al carrito</button>
+            </article>
+        </div>
+    </main>
+    <div id="cart-panel" class="cart-panel">
+        <div class="cart-panel-content">
+            <h3>Carrito de compras</h3>
+            <ul id="cart-items"></ul>
+            <p id="cart-total"></p>
+            <button id="pay-cart" class="btn" style="background:#00ff99; color:#222; margin-bottom:8px;">Pagar</button>
+            <button id="close-cart" class="btn">Cerrar</button>
+        </div>
+    </div>
+    <footer class="site-footer">
+        <p>&copy; 2025 ARCADIA - Tienda de Videojuegos</p>
+    </footer>
+    <script src="/js/app.js" defer></script>
+</main>
+<script>
+// Filtro de búsqueda por nombre con mensaje si no hay resultados
+document.addEventListener('DOMContentLoaded', function() {
+    const searchInput = document.getElementById('searchInput');
+    const catalogCards = document.getElementById('catalogCards');
+    // Crear mensaje vacío
+    const noResultsMsg = document.createElement('div');
+    noResultsMsg.id = 'noResultsMsg';
+    noResultsMsg.textContent = 'Lo sentimos, no tenemos ese juego por ahora pero pronto te lo ofreceremos!';
+    noResultsMsg.style.cssText = 'color:#fff; font-size:1.2rem; text-align:center; margin-top:2rem; display:none;';
+    catalogCards.parentNode.insertBefore(noResultsMsg, catalogCards.nextSibling);
+
+    searchInput.addEventListener('input', function() {
+        const query = searchInput.value.toLowerCase();
+        const cards = catalogCards.querySelectorAll('.card');
+        let found = false;
+        cards.forEach(card => {
+            const title = card.querySelector('h4').textContent.toLowerCase();
+            const match = title.includes(query);
+            card.style.display = match ? '' : 'none';
+            if (match) found = true;
+        });
+        noResultsMsg.style.display = found ? 'none' : 'block';
+    });
+});
+</script>
+</body>
+</html>

@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="es">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Checkout | ARCADIA</title>
+    <link href="/css/style.css" rel="stylesheet">
+    <link rel="icon" type="image/png" href="/img/hellcapsule.png">
+</head>
+<body>
+    <header class="site-header">
+        <div class="nav-wrap">
+            <a class="nav-logo" href="/index.html">ARCADIA</a>
+            <nav class="nav-main">
+                <a href="/index.html">Inicio</a>
+                <a href="/catalog.html">Catálogo</a>
+                <a href="/contact.html">Contacto</a>
+            </nav>
+        </div>
+    </header>
+    <main class="container">
+        <h2 class="text-center">Checkout</h2>
+        <form id="checkoutForm" class="contact-form" style="max-width:400px;margin:auto;">
+            <label for="name">Nombre completo:</label>
+            <input type="text" id="name" name="name" required placeholder="Tu nombre">
+            <label for="email">Correo electrónico:</label>
+            <input type="email" id="email" name="email" required placeholder="ejemplo@email.com">
+            <label for="address">Dirección:</label>
+            <input type="text" id="address" name="address" required placeholder="Dirección de entrega">
+            <label for="payment">Método de pago:</label>
+            <select id="payment" name="payment" required>
+                <option value="">Selecciona...</option>
+                <option value="tarjeta">Tarjeta de crédito</option>
+                <option value="paypal">PayPal</option>
+                <option value="efectivo">Efectivo</option>
+            </select>
+            <button type="submit" class="btn" style="margin-top:1rem;">Finalizar compra</button>
+        </form>
+        <div id="checkout-success" style="display:none; text-align:center; color:#00ff99; margin-top:2rem; font-size:1.2rem;">
+            ¡Gracias por tu compra! Pronto recibirás la confirmación en tu correo.
+        </div>
+    </main>
+    <footer class="site-footer">
+        <p>&copy; 2025 ARCADIA - Tienda de Videojuegos</p>
+    </footer>
+    <script>
+    document.getElementById('checkoutForm').addEventListener('submit', function(e) {
+        e.preventDefault();
+        document.getElementById('checkoutForm').style.display = 'none';
+        document.getElementById('checkout-success').style.display = 'block';
+    });
+    </script>
+</body>
+</html>

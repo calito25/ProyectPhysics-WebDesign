@@ -1,0 +1,106 @@
+<!doctype html>
+<html lang="es">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width,initial-scale=1">
+	<title>ARCADIA - Tienda de Videojuegos</title>
+	<link href="/css/style.css" rel="stylesheet">
+	<link rel="icon" type="image/png" href="/img/hellcapsule.png">
+</head>
+<body>
+	<header class="site-header">
+		<div class="nav-wrap">
+			<a class="nav-logo" href="/">ARCADIA</a>
+			<button class="nav-toggle" aria-label="Abrir menú">☰</button>
+			<nav class="nav-main">
+				<a href="/">Inicio</a>
+				<a href="/catalog.html">Catálogo</a>
+				<a href="/contact.html">Contacto</a>
+				<a href="#" id="cart-icon" class="cart-link">
+					🛒 <span id="cart-count">0</span>
+				</a>
+			</nav>
+		</div>
+	</header>
+
+	<main id="app" class="container">
+		<section class="hero">
+			<h2>Bienvenido a ARCADIA</h2>
+			<p>Encuentra juegos para todas las plataformas.</p>
+			<a class="btn" href="/catalog.html">Ver catálogo</a>
+		</section>
+
+		<section class="offers">
+			<h3>Ofertas</h3>
+			<div class="cards offers-cards">
+				<article class="card offer-card" data-title="SpaceMarine2" data-price="35.00" data-img="/img/SpaceMarine2.jpg">
+					<div class="ribbon">20% OFF</div>
+					<img src="/img/SpaceMarine2.jpg" alt="Portada Warhammer 40K: SpaceMarine2">
+					<h4>Warhammer 40K: SpaceMarine2</h4>
+					<p class="platform" style="font-size:0.85rem;color:#b3c7f7;margin:0 0 2px 0;">PC, Xbox, PS5</p>
+					<p class="price">$35.00</p>
+					<button class="add-to-cart">Agregar al carrito</button>
+				</article>
+				<article class="card offer-card" data-title="Cyberpunk 2077" data-price="35.00" data-img="/img/Cyberpunk2077.jpg">
+					<div class="ribbon">20% OFF</div>
+					<img src="/img/Cyberpunk2077.jpg" alt="Portada Cyberpunk 2077">
+					<h4>Cyberpunk 2077</h4>
+					<p class="platform" style="font-size:0.85rem;color:#b3c7f7;margin:0 0 2px 0;">PC, PS5, Xbox</p>
+					<p class="price">$35.00</p>
+					<button class="add-to-cart">Agregar al carrito</button>
+				</article>
+			</div>
+		</section>
+
+		<section class="featured">
+			<h3>Destacados</h3>
+			<div class="cards">
+				<article class="card" data-title="Ghost of Tsushima Director's Cut" data-price="19.99" data-img="/img/GoTDC.webp">
+					<img src="/img/GoTDC.webp" alt="Portada Ghost of Tsushima Director's Cut">
+					<h4>Ghost of Tsushima Director's Cut</h4>
+					<p class="platform" style="font-size:0.85rem;color:#b3c7f7;margin:0 0 2px 0;">PS5, PS4, PC</p>
+					<p class="price">$45.99</p>
+					<button class="add-to-cart">Agregar al carrito</button>
+				</article>
+				<article class="card" data-title="Ghost Of Yotei" data-price="29.99" data-img="/img/GoY.webp">
+					<img src="/img/GoY.webp" alt="Portada Ghost Of Yotei">
+					<h4>Ghost Of Yotei</h4>
+					<p class="platform" style="font-size:0.85rem;color:#b3c7f7;margin:0 0 2px 0;">PS5</p>
+					<p class="price">$85.00</p>
+					<button class="add-to-cart">Agregar al carrito</button>
+				</article>
+				<article class="card" data-title="Battlefield 6" data-price="29.99" data-img="/img/BF6.webp">
+					<img src="/img/BF6.webp" alt="Portada Battlefield 6">
+					<h4>Battlefield 6</h4>
+					<p class="platform" style="font-size:0.85rem;color:#b3c7f7;margin:0 0 2px 0;">Xbox Series X, PS5, PC</p>
+					<p class="price">$90.00</p>
+					<button class="add-to-cart">Agregar al carrito</button>
+				</article>
+				<article class="card" data-title="Halo Infinite" data-price="34.99" data-img="/img/HaloInfinite.jpg">
+					<img src="/img/HaloInfinite.jpg" alt="Portada Halo Infinite">
+					<h4>Halo Infinite</h4>
+					<p class="platform" style="font-size:0.85rem;color:#b3c7f7;margin:0 0 2px 0;">PC, Xbox</p>
+					<p class="price">$34.99</p>
+					<button class="add-to-cart">Agregar al carrito</button>
+				</article>
+			</div>
+		</section>
+	</main>
+
+	<div id="cart-panel" class="cart-panel">
+		<div class="cart-panel-content">
+			<h3>Carrito de compras</h3>
+			<ul id="cart-items"></ul>
+			<p id="cart-total"></p>
+			<button id="pay-cart" class="btn" style="background:#00ff99; color:#222; margin-bottom:8px;">Pagar</button>
+			<button id="close-cart" class="btn">Cerrar</button>
+		</div>
+	</div>
+	<footer class="site-footer">
+		<p>&copy; 2025 ARCADIA - Tienda de Videojuegos</p>
+	</footer>
+
+	<!-- placeholder for frontend JS -->
+	<script src="/js/app.js" defer></script>
+</body>
+</html>
